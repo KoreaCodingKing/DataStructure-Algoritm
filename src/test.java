@@ -1,20 +1,29 @@
-
+import java.util.*;
 public class test {
 	public static void main(String[] args) {
-		String str = "";
-		int n = str.length();
-		char[] carr = new char[n];
-		
-		int k=1;
-		for(int i=0;i<carr.length;i++) {
-			carr[i]=str.substring(0).charAt(i);
-		}
-		
-		for(int j=0; j<carr.length;j++) {
-			carr[j]=(char) ((int)carr[j]+k);
-		}
-		
-		
-		
-	}
+        Scanner sc = new Scanner(System.in);
+        
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        int w=sc.nextInt();
+        int h=sc.nextInt();
+        
+        int a=Math.abs(x-w);
+        int b=Math.abs(y-h);
+        
+        PriorityQueue<Integer> pq=new PriorityQueue<Integer>();
+        ArrayList<Integer> list=new ArrayList<Integer>();
+        
+        list.add(h);
+        list.add(w);
+        list.add(a);
+        list.add(b);
+        list.add((int)Math.sqrt(a*a+b*b));
+        
+        for(int value:list){
+            pq.add(value);
+        }
+        
+        System.out.println(pq.poll());
+    }
 }
